@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #4691db
+        }
+
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        .counter {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .clicks {
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="counter">
+            <p id="count"> 0 </p>
+        </div>
+
+        <div>
+            <button onclick="dec()"> Decrement </button>
+            <button onclick="inc()"> Increment </button>
+        </div>
+
+        <div class="clicks">
+            <p> Clicks on Increment: <span id="incCount"> 0 </span></p>
+            <p> Clicks on Decrement: <span id="decCount"> 0 </span></p>
+        </div>
+    </div>
+
+    <script>
+        let c = 0, ci = 0, cd = 0;
+
+        const count = document.getElementById("count");
+
+        const incCount = document.getElementById("incCount");
+
+        const decCount = document.getElementById("decCount");
+
+        function inc() {
+            c++;
+            if (ci >= 10) {
+                ci = 0;
+            }
+            else { ci = ci + 1 }
+
+            update();
+        }
+
+        function dec() {
+            if (c > 0) {
+                c = c - 1;
+            }
+            else {
+                c = 0;
+            }
+
+            if (cd >= 10) {
+                cd = 0;
+            }
+            else {
+                cd = cd + 1;
+            }
+            update();
+        }
+
+        function update() {
+            count.textContent = c;
+            incCount.textContent = ci;
+            decCount.textContent = cd;
+        }
+    </script>
+
+
+</body>
+
+</html>
